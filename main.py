@@ -1,9 +1,8 @@
 print("Hola Mundo")
 
-z = 3
+z = 3 # hacer que este numero ingrese el usuario
 
 y = 2
 
 z = z+y
-
-print("la suma es ", z)
+print("La suma es ", z)
