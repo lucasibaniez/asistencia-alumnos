@@ -1,6 +1,6 @@
 print("Hola Mundo")
 
-x = 3 # hacer que este numero ingrese el usuario
+x = input("Ingrese un valor")
 
 y = 2
 
