@@ -1,31 +1,31 @@
-<h1>Bienvenidos al Sitio de asistencia</h1>
+{% extends 'base/base.html' %}
 
-<a href="{% url 'iniciar_sesion'  %}">Ir al login</a><br />
+{% block contenido %}
 
-<a href="{% url 'pagina_principal'  %}">Ir al home</a><br />
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                          
+    <h1 class="h2">LISTA DE USUARIOS</h1>                  
+                    
+  </div>
 
-<h3>Lista de usuarios</h3>
+  <table>
+      <thead>
+        <tr>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>NOMBRE DE USUARIO</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for usuario in usuarios %}
+                  <tr>
+                      <td>{{usuario.first_name}}</td>
+                      <td>{{usuario.last_name}}</td>
+                      <td>{{usuario.username}}</td>
+                  </tr>
 
-
-
-
-<table>
-    <thead>
-      <tr>
-        <th>NOMBRE</th>
-        <th>APELLIDO</th>
-        <th>NOMBRE DE USUARIO</th>
-      </tr>
-    </thead>
-    <tbody>
-        {% for usuario in usuarios %}
-                <tr>
-                    <td>{{usuario.first_name}}</td>
-                    <td>{{usuario.last_name}}</td>
-                    <td>{{usuario.username}}</td>
-                </tr>
-
-           
-        {% endfor %}
-    </tbody>
-  </table>
+            
+          {% endfor %}
+      </tbody>
+    </table>
+{% endblock contenido %}
