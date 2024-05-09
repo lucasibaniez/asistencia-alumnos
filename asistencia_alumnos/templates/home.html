@@ -5,7 +5,10 @@
         <h1 class="h2">PAGINA DE INICIO</h1>                       
     </div>
 
-
-    El usuario autenticado es: {{ user }}
+    {% if user.is_authenticated %}
+        Bienvenido, {{user.username}}
+    {% else %}
+        Inicie sesión para continuar
+    {% endif %}
             
 {% endblock contenido %}
