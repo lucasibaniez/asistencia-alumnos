@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.views.generic.list import ListView
 from apps.usuarios.models import Usuario
 
 def listar_usuarios(request):
@@ -16,3 +16,9 @@ def listar_usuarios(request):
         # 'fecha_hora': '29/04/2024 15:28 hs'
     }
     return render(request, template_name, ctx)
+
+class ListarUsuarios(ListView):
+    template_name='usuarios/listar_todos.html'
+    model = Usuario
+    context_object_name = 'usuarios'
+
