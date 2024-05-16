@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
+from .forms import ClaseForm
 from .models import Clase
 
 def listar_clases(request):
@@ -11,3 +14,11 @@ def listar_clases(request):
         "clases": Clase.objects.all().order_by("-fecha")
     }
     return render(request, template_name, ctx)
+
+
+class CrearClase(CreateView):
+    template_name = "clases/crear.html"
+    model = Clase
+    form_class = ClaseForm
+    success_url = reverse_lazy("clases:listar_clases")
+
