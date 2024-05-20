@@ -17,5 +17,6 @@ urlpatterns = [
 
     # Includes
     path("usuarios/", include('apps.usuarios.urls')),
-    path("clases/", include('apps.clases.urls'))
+    path("clases/", include('apps.clases.urls')),
+    path("asistencias/", include('apps.asistencias.urls'))
 ]

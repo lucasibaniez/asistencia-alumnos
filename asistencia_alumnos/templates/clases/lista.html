@@ -15,9 +15,8 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>Id</th>
 						<th scope="col">Fecha</th>
-						<th scope="col">Cantidad Alumnos</th>
+						<th scope="col">Cantidad Alumnos Presentes</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -28,11 +27,11 @@
 					
 						
 						<tr>
-							<td>{{clase.pk}}</td>
 							<td>{{clase.fecha}}</td>
 							<td></td>
 							<td>
 								<a href="{% url 'clases:editar' clase.pk %}" class="btn btn-primary btn-sm">EDITAR</a>
+								<a href="{% url 'asistencias:marcar_asistencia' clase.id %}" class="btn btn-success btn-sm">MARCAR ASISTENCIAS</a>
 							</td>
 						</tr>
 					{% endfor %}
