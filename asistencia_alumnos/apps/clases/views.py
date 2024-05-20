@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 
 from .forms import ClaseForm
 from .models import Clase
-
+"""
 def listar_clases(request):
     template_name = 'clases/lista.html'
 
@@ -14,6 +15,21 @@ def listar_clases(request):
         "clases": Clase.objects.all().order_by("-fecha")
     }
     return render(request, template_name, ctx)
+"""
+
+class ListarClases(ListView):
+    template_name='clases/lista.html'
+    model = Clase
+    context_object_name = 'clases'
+    paginate_by = 20
+
+    def get_context_data(self, **kwargs):
+        ctx = super(ListarClases, self).get_context_data(**kwargs)
+        ctx["icono"] = "o"
+        return ctx
+   
+    def get_queryset(self):
+        return self.model.objects.all().order_by("-fecha")
 
 
 class CrearClase(CreateView):
