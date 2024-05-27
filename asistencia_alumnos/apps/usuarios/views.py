@@ -30,7 +30,7 @@ class ListarUsuarios(ListView):
         return ctx
    
     def get_queryset(self):
-        return self.model.objects.all().order_by("id")
+        return self.model.objects.all().order_by("last_name", "first_name")
 
 
 
