@@ -44,3 +44,14 @@ class EditarClase(UpdateView):
     form_class = ClaseForm
     success_url = reverse_lazy("clases:listar_clases")
 
+
+class MisClases(ListView):
+    template_name='clases/mis_clases.html'
+    model = Clase
+    context_object_name = 'clases'
+    paginate_by = 20
+
+    def get_queryset(self):
+        return self.model.objects.all().order_by("-fecha")
+
+
