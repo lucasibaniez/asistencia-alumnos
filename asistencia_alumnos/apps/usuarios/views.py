@@ -22,7 +22,7 @@ class ListarUsuarios(ListView):
     template_name='usuarios/listar_todos.html'
     model = Usuario
     context_object_name = 'usuarios'
-    paginate_by = 2
+    paginate_by = 20
 
     def get_context_data(self, **kwargs):
         ctx = super(ListarUsuarios, self).get_context_data(**kwargs)
