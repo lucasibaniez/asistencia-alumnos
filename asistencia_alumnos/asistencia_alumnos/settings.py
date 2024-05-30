@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'apps.clases',
     'apps.asistencias',
     'apps.materias',
+    'django_filters'
 ]
 
 AUTH_USER_MODEL = "usuarios.Usuario"
